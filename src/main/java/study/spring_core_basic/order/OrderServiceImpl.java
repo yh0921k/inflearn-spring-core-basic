@@ -7,8 +7,13 @@ import study.spring_core_basic.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
-  private final MemberRepository memberRepository = new MemoryMemberRepository();
-  private DiscountPolicy discountPolicy;
+  private final MemberRepository memberRepository;
+  private final DiscountPolicy discountPolicy;
+
+  public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    this.memberRepository = memberRepository;
+    this.discountPolicy = discountPolicy;
+  }
 
   // SRP가 잘 지켜진 로직으로, 할인 정책에 대한 변경이 필요할 때 주문 로직을 수정할 필요가 없음
   @Override
