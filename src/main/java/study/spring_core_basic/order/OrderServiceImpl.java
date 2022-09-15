@@ -3,7 +3,6 @@ package study.spring_core_basic.order;
 import study.spring_core_basic.discount.DiscountPolicy;
 import study.spring_core_basic.member.Member;
 import study.spring_core_basic.member.MemberRepository;
-import study.spring_core_basic.member.MemoryMemberRepository;
 
 public class OrderServiceImpl implements OrderService{
 
@@ -24,5 +23,10 @@ public class OrderServiceImpl implements OrderService{
     int discountPrice = discountPolicy.discount(member, itemPrice);
 
     return new Order(memberId, itemName, itemPrice, discountPrice);
+  }
+
+  // 테스트 용도
+  public MemberRepository getMemberRepository() {
+    return memberRepository;
   }
 }
